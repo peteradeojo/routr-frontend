@@ -4,16 +4,39 @@
 //     componentTagger (dev-only), VITE_* env injection, @ path alias, React/TanStack dedupe,
 //     error logger plugins, and sandbox detection (port/host/strictPort).
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
-import nitro from "nitro/vite";
+// import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+// import nitro from "nitro/vite";
 
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
+// export default defineConfig({
+//    tanstackStart: {
+//        server: { entry: "server" },
+//    },
+    //vite: {
+    //    plugins: [nitro()]
+    //}
+// });
+//
+import {defineConfig} from "vite";
+import {tanstackStart} from "@tanstack/react-start/plugin/vite";
+import {nitro} from "nitro/vite";
+import viteReact from '@vitejs/plugin-react';
+import path from "path";
+import tailwind from "@tailwindcss/vite";
+
 export default defineConfig({
-    tanstackStart: {
-        server: { entry: "server" },
-    },
-    vite: {
-        plugins: [nitro()]
+    plugins: [
+        tanstackStart(),
+        nitro({
+            preset: 'vercel',
+        }),
+        tailwind(),
+        viteReact(),
+    ],
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, './src'),
+        }
     }
 });
