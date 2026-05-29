@@ -34,7 +34,7 @@ export function Calculator() {
           </p>
 
           <div className="mt-16 border-t border-border">
-            <div className="grid sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border border-b border-border">
+            <div className="grid grid-cols-2 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border border-b border-border">
               <Field label="From">
                 <select value={from} onChange={(e) => setFrom(e.target.value)} className="w-full bg-transparent font-display text-3xl md:text-4xl font-bold tracking-tight focus:outline-none">
                   {cities.map((c) => <option key={c} className="bg-background">{c}</option>)}
@@ -45,7 +45,7 @@ export function Calculator() {
                   {cities.map((c) => <option key={c} className="bg-background">{c}</option>)}
                 </select>
               </Field>
-              <Field label={`Weight — ${weight}kg`}>
+              <Field className="border border-red-500 col-span-full sm:col-span-1" label={`Weight — ${weight}kg`}>
                 <input
                   type="range" min={1} max={20} value={weight}
                   onChange={(e) => setWeight(Number(e.target.value))}

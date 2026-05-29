@@ -9,7 +9,7 @@ export function TrustBar() {
   ];
   const loop = [...items, ...items, ...items];
   return (
-    <section className="border-y border-border py-6 overflow-hidden">
+    <section className="border-y border-border px-4 md:px-0 py-6 overflow-hidden">
       <div className="flex gap-16 whitespace-nowrap [animation:var(--animate-marquee)]">
         {loop.map((t, i) => (
           <span key={i} className="font-display text-2xl md:text-4xl font-semibold tracking-tight inline-flex items-center gap-16">
