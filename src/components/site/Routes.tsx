@@ -10,7 +10,7 @@ const routes = [
 export function Routes() {
   return (
     <section id="routes" className="border-t border-border">
-      <div className="container-page py-32 md:py-48 grid md:grid-cols-12 gap-10">
+      <div className="container-page py-16 md:py-48 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-3">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">[ 04 ] Live routes</p>
         </div>

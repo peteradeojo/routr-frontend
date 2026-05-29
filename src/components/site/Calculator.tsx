@@ -21,7 +21,7 @@ export function Calculator() {
 
   return (
     <section id="send" className="border-t border-border">
-      <div className="container-page py-32 md:py-48 grid md:grid-cols-12 gap-10">
+      <div className="container-page py-8 md:py-48 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-3">
           <p className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">[ 02 ] Live savings</p>
         </div>
@@ -45,7 +45,7 @@ export function Calculator() {
                   {cities.map((c) => <option key={c} className="bg-background">{c}</option>)}
                 </select>
               </Field>
-              <Field className="border border-red-500 col-span-full sm:col-span-1" label={`Weight — ${weight}kg`}>
+              <Field className="col-span-full md:col-span-1" label={`Weight — ${weight}kg`}>
                 <input
                   type="range" min={1} max={20} value={weight}
                   onChange={(e) => setWeight(Number(e.target.value))}
@@ -79,9 +79,9 @@ export function Calculator() {
   );
 }
 
-function Field({ label, children }: { label: string; children: React.ReactNode }) {
+function Field({ label, children, className }: { label: string; children: React.ReactNode, className: string }) {
   return (
-    <div className="py-8 sm:px-6 first:sm:pl-0 last:sm:pr-0">
+    <div className={`py-8 sm:px-6 first:sm:pl-0 last:sm:pr-0 ${className}`}>
       <span className="text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">{label}</span>
       <div className="mt-3">{children}</div>
     </div>
