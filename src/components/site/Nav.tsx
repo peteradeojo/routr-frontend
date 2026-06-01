@@ -1,8 +1,28 @@
 import { Link } from "@tanstack/react-router";
+import {useState, useEffect} from 'react';
 
 export function Nav() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+	setIsScrolled(() => true);
+      } else {
+	setIsScrolled(() => false);
+      }
+    }; 
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    }
+  }, [])
+  
+
   return (
-    <header className="absolute top-0 left-0 right-0 z-50">
+    <header className={`sticky top-0 left-0 right-0 z-50 duration-150 ${isScrolled && 'bg-white text-black'}`}>
       <div className="container-page md:flex h-20 items-center justify-between">
         <Link to="/" className="text-sm block font-medium tracking-tight py-4 md:py-0">
           Pasaro<span className="text-muted-foreground"> — Cheaper delivery, real travelers</span>
