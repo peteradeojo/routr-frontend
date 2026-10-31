@@ -13,35 +13,35 @@ import { FinalCTA } from "@/components/site/FinalCTA";
 import { Footer } from "@/components/site/Footer";
 
 export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Pasaro — Send packages through trusted travelers" },
-      { name: "description", content: "Cheaper, faster cross-city delivery powered by verified travelers already heading your way. Save up to 70% vs traditional couriers." },
-      { property: "og:title", content: "Pasaro — Send packages through trusted travelers" },
-      { property: "og:description", content: "Community-powered logistics. Verified travelers. Escrow-protected delivery." },
-    ],
-  }),
-  component: Index,
+	head: () => ({
+		meta: [
+			{ title: "Pasaro — Send packages through trusted travelers" },
+			{ name: "description", content: "Cheaper, faster cross-city delivery powered by verified travelers already heading your way. Save up to 70% vs traditional couriers." },
+			{ property: "og:title", content: "Pasaro — Send packages through trusted travelers" },
+			{ property: "og:description", content: "Community-powered logistics. Verified travelers. Escrow-protected delivery." },
+		],
+	}),
+	component: Index,
 });
 
 function Index() {
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Nav />
-      <main>
-        <Hero />
-        <TrustBar />
-        <HowItWorks />
-        <Calculator />
-        <Trust />
-        <LiveRoutes />
-        <UseCases />
-        <Earn />
-        <FAQ />
-        <FinalCTA />
-      </main>
-      <Footer />
-    </div>
-  );
+	return (
+		<div className="min-h-screen bg-background text-foreground">
+			<Nav />
+			<main>
+				<Hero />
+				<TrustBar />
+				<HowItWorks />
+				<Calculator />
+				<Trust />
+				<LiveRoutes />
+				<UseCases />
+				<Earn />
+				<FAQ />
+				<FinalCTA />
+			</main>
+			<Footer />
+		</div>
+	);
 }
 
